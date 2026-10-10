@@ -94,7 +94,7 @@ function RoomsPage() {
   const filtered = useMemo(() => {
     let list = [...sceneMeta];
     if (sp.room) list = list.filter((s) => s.room === sp.room);
-    if (sp.style) list = list.filter((s) => s.styles.includes(sp.style));
+    if (sp.style) { const style = sp.style; list = list.filter((s) => s.styles.includes(style)); }
     list = list.filter((s) => s.price <= maxPrice);
     switch (sp.sort) {
       case "price-asc": list.sort((a, b) => a.price - b.price); break;
